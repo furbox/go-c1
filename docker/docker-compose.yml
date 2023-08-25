@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  db-go:
+    image: mysql:8-debian
+    container_name: go-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: furbox
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: godb
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
